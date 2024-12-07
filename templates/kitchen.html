@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Inventory - Foody</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/min.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">Foody - Whrehouse</div>
+        <nav>
+            <a href="{{ url_for('main') }}">Home</a>
+            <a href="{{ url_for('mun') }}">Menu</a>
+        </nav>
+    </header>
+
+    <section class="inventory">
+        <h2>Food Inventory</h2>
+        <div class="inventory-list">
+            {% for item in inventory_items %}
+            <div class="item {% if item.Quantity == 0 %}out-of-stock{% endif %}">
+                <h3>{{ item.Item_Name }}</h3>
+                <p>Quantity: {{ item.Quantity }}KG</p>
+                <p style="color: brown;">Category:<span>{{ item.Category }}</span> </p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>

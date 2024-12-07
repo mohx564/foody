@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Foody</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mun.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">Foody - menu</div>
+        <nav>
+            <a href="{{ url_for('main') }}">Home</a>
+            <a href="{{ url_for('mun') }}">Menu</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="menu">
+        <h1>Our Menu</h1>
+        <div class="menu-items">
+            {% for item in menu_items %}
+            <div class="menu-item">
+                <img src="{{ item.img_path}}" alt="{{ item.Item_Name }}">
+                <h2>{{ item.Item_Name }}</h2>
+                <p>{{ item.info }}</p>
+                <p class="price">${{ item.Price }}</p>
+                <!--  نموذج الطلب -->
+                <form action="{{ url_for('place_order') }}" method="POST">
+                    <input type="hidden" name="item_id" value="{{ item.Menu_Item_ID }}">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" name="quantity" min="1" value="1" required>
+                    <button type="submit">Order Now</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foody - Restaurant Experience</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/min.css') }}">
+    <!-- إضافة مكتبة Toastr CSS و JavaScript -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <div class="logo">Foody</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="{{ url_for('mun') }}">Menu</a>
+            {% if role == 'chef' %}
+            <a href="{{ url_for('kitchen') }}">Whrehouse</a>
+            
+            <a href="{{ url_for('manage_orders') }}">Order</a>
+            
+            <a href="{{ url_for('fridge') }}">Fridge</a>
+            {% endif %}
+            
+        </nav>
+        <div class="sign-up-container">
+            <button class="sign-up"><a href="{{ url_for('login') }}">Log In</a></button>
+            <button class="sign-up"><a href="{{ url_for('register') }}">Sign Up</a></button>
+        </div>
+    </header>
+    
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome to Foody</h1>
+                <p class="hero-subtitle">Fresh flavors, great moments—served daily!</p>
+                <button class="menu-btn">View Menu</button>
+                <button class="book-btn">Book a Table</button>
+            </div>
+            <div class="food-image">
+                <img src="{{ url_for('static', filename='images/hero.png') }}" alt="Roasted Chicken">
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section class="featured-dishes">
+        <h1>Our Featured Dishes</h1>
+        <div class="featured-items">
+            {% for item in featured_items %}
+            <div class="featured-item">
+                <img src="{{ item.img_path}}" alt="{{ item.Item_Name }}">
+                <h2>{{ item.Item_Name }}</h2>
+                <p>{{ item.info }}</p>
+                <p class="price">${{ item.Price }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+
+    <section class="why-choose-us">
+        <h2>WHY CHOOSE US?</h2>
+        <p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who...</p>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🍏</div>
+                <div class="feature-title">Healthy Food</div>
+                <div class="feature-description">No one rejects, dislikes, or avoids pleasure itself, because it is a long established fact that...</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📄</div>
+                <div class="feature-title">Best Quality</div>
+                <div class="feature-description">No one rejects, dislikes, or avoids pleasure itself, because it is a long established fact that...</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🚚</div>
+                <div class="feature-title">Fast Delivery</div>
+                <div class="feature-description">No one rejects, dislikes, or avoids pleasure itself, because it is a long established fact that...</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-gallery">
+            <img src="{{ url_for('static', filename='images/1.png') }}" alt="Gallery Image 1">
+            <img src="{{ url_for('static', filename='images/1.png') }}" alt="Gallery Image 2">
+            <img src="{{ url_for('static', filename='images/1.png') }}" alt="Gallery Image 3">
+            <img src="{{ url_for('static', filename='images/1.png') }}" alt="Gallery Image 4">
+            <img src="{{ url_for('static', filename='images/1.png') }}" alt="Gallery Image 5">
+        </div>
+        <div class="footer-content">
+            <h2 class="footer-logo">Foody</h2>
+            <p>Discover the best dishes and dining experience at Foody. Your satisfaction is our top priority!</p>
+            <p>Address: 123 Food Street, Culinary City, TX 54321, USA | Phone: +1 123-456-7890</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2024 Foody. All rights reserved.</p>
+            <button class="map-btn">Find us on Map</button>
+        </div>
+    </footer>
+    
+
+    
+    
+</body>
+</html>

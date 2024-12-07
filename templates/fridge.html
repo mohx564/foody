@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge Inventory</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/min.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">Foody</div>
+        <nav>
+            <a href="{{ url_for('main') }}">Home</a>
+            <a href="{{ url_for('mun') }}">Menu</a>
+            <a href="{{ url_for('kitchen') }}">Warehouse</a>
+            <a href="{{ url_for('fridge') }}">Fridge</a>
+            <a href="{{ url_for('manage_orders') }}">Orders</a>
+        </nav>
+        <div class="sign-up-container">
+            <button class="sign-up"><a href="{{ url_for('logout') }}">Log Out</a></button>
+        </div>
+    </header>
+
+    <main class="inventory">
+        <h2>Fridge Inventory</h2>
+        <div class="inventory-list">
+            {% for item in fridge_items %}
+            <div class="item {% if item.Quantity == 0 %}out-of-stock{% endif %}">
+                <h3>{{ item.Item_Name }}</h3>
+                <p>Quantity: {{ item.Quantity }}</p>
+                <p>Expiry Date: {{ item.Expiry_Date }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

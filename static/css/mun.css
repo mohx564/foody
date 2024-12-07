@@ -1,0 +1,235 @@
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background-color: #fff;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fa4a0c;
+}
+
+header nav {
+    display: flex;
+    gap: 20px; /* مسافة بين الروابط */
+}
+
+header nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover {
+    color: #fa4a0c;
+    text-decoration: underline;
+}
+
+header .sign-up-container {
+    display: flex;
+    gap: 15px; /* التحكم في المسافة بين الأزرار */
+}
+
+header .sign-up {
+    padding: 10px 20px;
+    background-color: #fa4a0c;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+header .sign-up:hover {
+    background-color: #d03c09;
+    transform: scale(1.05);
+}
+
+header .sign-up a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+header .sign-up:hover a {
+    color: #fff;
+}
+
+.menu {
+    text-align: center;
+    padding: 40px 10%;
+}
+
+.menu h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fa4a0c;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.menu-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.menu-item img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.menu-item h2 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.menu-item p {
+    font-size: 14px;
+    color: #777;
+}
+
+.menu-item .price {
+    font-size: 16px;
+    color: #fa4a0c;
+    margin-top: 5px;
+}
+
+
+
+/*order*/
+
+
+form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input[type="number"] {
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+}
+
+form button {
+    background-color: #fa4a0c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #d03c09;
+}
+
+
+/*ofrder*/
+/* الجداول */
+.orders-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.orders-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table th, .orders-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.orders-table th {
+    background-color: #fa4a0c;
+    color: #fff;
+}
+
+.orders-table td {
+    background-color: #f9f9f9;
+}
+
+.orders-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.orders-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.orders-table form {
+    margin: 0;
+}
+
+.orders-table select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.orders-table button {
+    background-color: #fa4a0c;
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.orders-table button:hover {
+    background-color: #d03c09;
+}
+
+/* رسالة عندما لا توجد طلبات */
+.orders-section p {
+    font-size: 1.2rem;
+    color: #777;
+}

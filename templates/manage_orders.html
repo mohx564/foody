@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders - Foody</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mun.css') }}">
+  
+
+
+</head>
+<body>
+    <header>
+        <div class="logo">Foody - Manage Orders</div>
+        <nav>
+            <a href="{{ url_for('main') }}">Home</a>
+            <a href="{{ url_for('kitchen') }}">Kitchen</a>
+        </nav>
+    </header>
+
+    <section class="orders-section">
+        <h2>Orders Pending</h2>
+        {% if orders %}
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.Order_ID }}</td>
+                        <td>{{ order.Customer_Username }}</td>
+                        <td>{{ order.Item_Name }}</td> <!-- عرض اسم المنتج هنا -->
+                        <td>{{ order.Quantity }}</td>
+                        <td>${{ order.Total_Price }}</td>
+                        <td>{{ order.Status }}</td>
+                        <td>
+                            <form action="{{ url_for('update_order', order_id=order.Order_ID) }}" method="POST">
+                                <select name="status">
+                                    <option value="Pending" {% if order.Status == 'Pending' %}selected{% endif %}>Pending</option>
+                                    <option value="Completed" {% if order.Status == 'Completed' %}selected{% endif %}>Completed</option>
+                                </select>
+                                <button type="submit">Update</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No orders available</p>
+        {% endif %}
+    </section>
+    
+    
+    
+</body>
+</html>

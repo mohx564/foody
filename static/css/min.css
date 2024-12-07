@@ -1,0 +1,647 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background-color: #fff;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fa4a0c;
+}
+
+header nav {
+    display: flex;
+    gap: 20px; /* مسافة بين الروابط */
+}
+
+header nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover {
+    color: #fa4a0c;
+    text-decoration: underline;
+}
+
+header .sign-up-container {
+    display: flex;
+    gap: 15px; /* التحكم في المسافة بين الأزرار */
+}
+
+header .sign-up {
+    padding: 10px 20px;
+    background-color: #fa4a0c;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+header .sign-up:hover {
+    background-color: #d03c09;
+    transform: scale(1.05);
+}
+
+header .sign-up a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+header .sign-up:hover a {
+    color: #fff;
+}
+
+/* تصميم القسم الأساسي */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: left;
+    margin-top: 80px; /* إضافة مسافة أعلى للتعويض عن الهيدر الثابت */
+}
+
+/* الأزرار داخل الـ Hero */
+.hero .menu-btn, .hero .book-btn {
+    padding: 12px 24px;
+    margin: 10px 10px 0 0;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease; /* تأثير سلس */
+}
+
+/* زر "View Menu" */
+.hero .menu-btn {
+    background-color: #fa4a0c;
+    color: #fff;
+}
+
+.hero .menu-btn:hover {
+    background-color: #e03c09; /* تغيير اللون عند التمرير */
+    transform: translateY(-3px); /* رفع الزر قليلاً عند التفاعل */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* إضافة ظل عند التمرير */
+}
+
+/* زر "Book a Table" */
+.hero .book-btn {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 2px solid #fa4a0c; /* إضافة حدود مع اللون البرتقالي */
+}
+
+.hero .book-btn:hover {
+    background-color: #fa4a0c; /* تغيير اللون عند التمرير */
+    color: #fff; /* تغيير لون النص */
+    transform: translateY(-3px); /* رفع الزر قليلاً عند التفاعل */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* إضافة ظل عند التمرير */
+}
+
+/* إضافة حركة عند التحميل */
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    opacity: 0; /* إخفاء في البداية */
+    transform: translateY(20px); /* نقل النص والصورة للأسفل */
+    animation: fadeInSlide 1s ease-out forwards; /* حركة الدخول */
+}
+
+@keyframes fadeInSlide {
+    to {
+        opacity: 1; /* ظهور العنصر */
+        transform: translateY(0); /* عودة العنصر لمكانه الطبيعي */
+    }
+}
+
+/* تحسين النصوص */
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    animation: fadeInText 1s ease-in-out forwards;
+}
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 20px;
+    font-style: italic; /* إضافة مظهر أنيق للنص */
+    animation: fadeInText 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateX(-20px); /* انزلاق من اليسار */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* مكان طبيعي */
+    }
+}
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(-10px); /* حركة خفيفة من الأعلى */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* عودة للمكان الطبيعي */
+    }
+}
+
+/* حركة للصورة */
+.food-image img {
+    width: 300px;
+    height: auto;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.8); /* تصغير الصورة في البداية */
+    animation: zoomIn 1.5s ease-out forwards; /* حركة التكبير */
+}
+
+@keyframes zoomIn {
+    to {
+        opacity: 1;
+        transform: scale(1); /* العودة للحجم الطبيعي */
+    }
+}
+
+/* تحسين الاستجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .food-image {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .food-image img {
+        width: 200px; /* تصغير حجم الصورة للأجهزة الصغيرة */
+    }
+}
+
+
+.product-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* مسافة بين الكروت */
+    flex-wrap: wrap; /* للسماح للكروت بالانتقال إلى السطر التالي عند عدم وجود مساحة كافية */
+    padding: 40px 10%;
+}
+
+.product-cards .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 200px; /* عرض ثابت للكروت */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s; /* تأثير عند تمرير الماوس */
+}
+
+.product-cards .card:hover {
+    transform: scale(1.05); /* تكبير الكارت قليلاً عند تمرير الماوس */
+}
+
+.product-cards .card img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.product-cards .card h2 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.product-cards .card p {
+    font-size: 16px;
+    color: #fa4a0c;
+    margin-top: 5px;
+}
+.product-cards .card button{
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #fa4a0c;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* why us*/
+.why-choose-us {
+    text-align: center;
+    padding: 50px 20px;
+   
+}
+
+.why-choose-us h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.why-choose-us p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* مسافة بين الكروت */
+    flex-wrap: wrap; /* للسماح للكروت بالانتقال إلى السطر التالي عند عدم وجود مساحة كافية */
+    padding: 40px 10%;
+}
+
+.feature {
+    
+    border-radius: 10px;
+    
+    
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+
+
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s; /* تأثير عند تمرير الماوس */
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #f77c4a; /* لون مميز للأيقونات */
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feature-description {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/*footer*/
+
+.footer {
+    background-color: #222; /* لون الخلفية */
+    color: #fff; /* لون النص */
+    text-align: center;
+    padding: 40px 10%; /* مسافات داخلية */
+    position: relative;
+}
+
+.footer-gallery {
+    display: flex;
+    overflow: hidden;
+    gap: 5px;
+}
+
+.footer-gallery img {
+    width: 20%; /* عرض الصورة */
+    height: 100px; /* ارتفاع ثابت للصور */
+    object-fit: cover; /* ضبط تناسب الصور */
+}
+
+.footer-content {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.footer-logo {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #fa4a0c; /* تغيير اللون عند التمرير */
+}
+
+.map-btn {
+    background-color: #fa4a0c;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.map-btn:hover {
+    background-color: #d03c09; /* تغيير اللون عند التمرير */
+}
+
+
+/* login css*/
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.login-container label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.login-container input:focus {
+    border-color: #fa4a0c;
+    outline: none;
+    box-shadow: 0 0 5px rgba(250, 74, 12, 0.2);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #fa4a0c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.login-btn:hover {
+    background-color: #d03c09;
+    transform: scale(1.02);
+}
+
+.login-btn:active {
+    background-color: #b83607;
+    transform: scale(0.98);
+}
+
+.login-container p {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.login-container p a {
+    color: #fa4a0c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container p a:hover {
+    text-decoration: underline;
+}
+
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #fa4a0c, #ff670f);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(250, 74, 12, 0.2);
+}
+
+.login-btn:hover {
+    background: linear-gradient(90deg, #ff670f, #fa4a0c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(250, 74, 12, 0.3);
+}
+
+.login-btn:active {
+    transform: translateY(1px);
+    background: linear-gradient(90deg, #d03c09, #b83607);
+    box-shadow: 0 2px 6px rgba(250, 74, 12, 0.2);
+}
+
+
+
+/* kitchen css*/
+
+
+.inventory {
+    max-width: 800px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.inventory h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.inventory-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 200px;
+    text-align: center;
+}
+
+.item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fa4a0c;
+}
+
+.item p {
+    font-size: 1rem;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.featured-dishes {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.featured-dishes h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.featured-items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.featured-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.featured-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.featured-item h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.featured-item p {
+    color: #666;
+    margin: 5px 0;
+}
+
+.featured-item .price {
+    color: #E74C3C;
+    font-weight: bold;
+}
+
+.out-of-stock {
+    color: red;
+    font-weight: bold;
+}
